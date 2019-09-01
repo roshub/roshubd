@@ -39,7 +39,7 @@ parts:
     source-commit: "ccd1cd95d381de7d135ebd30ef9b83df848eaba0"
     plugin: qmake
     project-files:
-      - bleSerialServer.pro
+      - src/bleSerialServer.pro
     build-packages:
       - build-essential
       - libssl-dev
