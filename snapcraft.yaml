@@ -34,8 +34,9 @@ apps:
     plugs: [raw-usb]
 parts:
   qt:
-    source: "./externals/ble-serial-server/src"
-    source-type: "local"
+    source: "https://github.com/roshub/ble-serial-server.git"
+    source-type: "git"
+    source-commit: "ccd1cd95d381de7d135ebd30ef9b83df848eaba0"
     plugin: qmake
     project-files:
       - bleSerialServer.pro
