@@ -1,5 +1,7 @@
 # roshubd
 
+[![Snap Status](https://build.snapcraft.io/badge/roshub/roshubd.svg)](https://build.snapcraft.io/user/roshub/roshubd)
+
 ## Install Snap
 
  * Install snap package
