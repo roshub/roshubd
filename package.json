@@ -47,7 +47,6 @@
     "sync-exec": "^0.6.2",
     "system-installer": "^1.1.0",
     "systeminformation": "^4.12.2",
-    "utf-8-validate": "^5.0.2",
     "uuid-mongodb": "^1.1.4",
     "winston": "^3.1.0",
     "xstate": "^4.5.0"
