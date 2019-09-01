@@ -4,8 +4,9 @@
   "version": "0.8.2",
   "description": "RosHub device manager",
   "files": [
-    "src",
-    ".env"
+    "src/*",
+    "dist",
+    "externals"
   ],
   "scripts": {
     "start": "DEBUG=* npx ./src/index.js",
