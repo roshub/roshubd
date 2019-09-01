@@ -13,7 +13,7 @@
     "watch": "DEBUG=roshubd.*,-roshub_crypto.*,Task*,-*.verbose npx nodemon  --watch ./src --watch ../roshub-api --watch ../roshub-crypto src/index.js",
     "prepare-catkin": "npx webpack --config ./webpack.dev.js",
     "build-catkin": "./scripts/build-catkin.sh",
-    "build-snap": "./scripts/prepare-snapcraft.sh; ./scripts/build-snapcraft.sh",
+    "build-snap": "./scripts/build-snapcraft.sh",
     "clean-catkin": "rm -rf debian/ obj-*-linux*/"
   },
   "bin": {
