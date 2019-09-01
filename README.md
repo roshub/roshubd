@@ -1,6 +1,6 @@
 <img src=./icons/roshub_vector_logo.svg width=150>
 
-Device agent for https://roshub.io, The Robotics Cloud.
+Device agent for [The Robotics Cloud](https://roshub.io).
 
 # roshubd
 
