@@ -1,4 +1,14 @@
+<img src=./icons/roshub_vector_logo.svg width=150>
+
+Device agent for https://roshub.io, The Robotics Cloud.
+
 # roshubd
+
+[![Snap Status](https://build.snapcraft.io/badge/roshub/roshubd.svg)](https://build.snapcraft.io/user/roshub/roshubd)
+
+## Introduction
+
+Join the [Beta Program](https://roshub.io/beta-signup) for more information.
 
 ## Install Snap
 
