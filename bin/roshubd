@@ -1,0 +1,17 @@
+#!/bin/bash
+if ! [ -z $SNAP ];
+then
+    PATH=$PATH:/snap/bin:$SNAP/usr/bin $SNAP/bin/node $SNAP/src/index.js $@
+else
+    ROSHUBD_ROS_PKG_PATH=`rospack find roshubd`
+    if [ -z $ROSHUBD_ROS_PKG_PATH ];
+    then 
+        node ../src/index.js $@
+    else
+        node $ROSHUBD_ROS_PKG_PATH/src/index.js $@
+    fi
+fi
+
+
+#PATH=$PATH:/snap/bin:$SNAP/usr/bin DEBUG=roshubd.*,-roshub_crypto.*,Task*,-*.verbose $SNAP/bin/node $SNAP/src/index.js
+

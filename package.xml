@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>roshubd</name>
+  <version>0.8.2</version>
+  <description>RosHub daemon client</description>
+  <license>Apache-2.0</license>
+  <author email="code@roshub.io">RosHub Inc.</author>
+  <url type="website">http://github.com/roshub/roshubd</url>
+  <maintainer email="code@roshub.io">RosHub Inc.</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>nodejs</buildtool_depend>
+  <buildtool_depend>npm</buildtool_depend>
+  <exec_depend>rospack</exec_depend>
+  <exec_depend>nodejs</exec_depend>
+
+  <export></export>
+</package>

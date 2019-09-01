@@ -1,0 +1,93 @@
+name: roshubd
+version: '0.8.2'
+summary: RosHub device manager
+description: RosHub device manager
+icon: icons/roshub_vector_logo-256x256.png
+base: "core18"
+confinement: devmode
+grade: stable
+
+architectures:
+  - build-on: amd64
+    run-on: amd64
+
+  - build-on: i386
+    run-on: i386
+
+  - build-on: armhf
+    run-on: armhf
+
+  - build-on: arm64
+    run-on: arm64
+
+
+apps:
+  ble-serial-server:
+    command: bin/bleSerialServer
+    plugs: [bluetooth-control, bluez, network, network-bind, network-observe]
+  roshubd:
+    command: bin/roshubd
+    plugs: [bluetooth-control, bluez, network, network-bind, network-manager, network-observe, raw-usb]
+    daemon: simple
+  blink1-tool:
+    command: usr/local/bin/blink1-tool
+    plugs: [raw-usb]
+parts:
+  qt:
+    source: "./externals/ble-serial-server/src"
+    source-type: "local"
+    plugin: qmake
+    project-files:
+      - bleSerialServer.pro
+    build-packages:
+      - build-essential
+      - libssl-dev
+      - qtbase5-dev
+      - qtconnectivity5-dev
+    stage-packages:
+      # Here for the plugins-- they're not linked in automatically.
+      - libqt5bluetooth5
+      - libqt5network5
+  roshubd:
+    source: "."
+    plugin: nodejs2
+    nodejs-version: "8.11.0"
+    nodejs-package-manager: "yarn"
+    build-packages:
+      - git
+      - nodejs
+    stage-packages:
+      - libasn1-8-heimdal
+      - libcurl3-gnutls
+      - libcurl4
+      - libgssapi3-heimdal
+      - libhcrypto4-heimdal
+      - libheimbase1-heimdal
+      - libheimntlm0-heimdal
+      - libhx509-5-heimdal
+      - libkrb5-26-heimdal
+      - libroken18-heimdal
+      - libwind0-heimdal
+      - libldap-2.4-2
+      - libnghttp2-14
+      - libpsl5
+      - librtmp1
+      - libsasl2-2
+      - git
+      - snapd
+  blink:
+    source: "https://github.com/todbot/blink1-tool.git"
+    plugin: make
+    build-packages:
+      - pkg-config
+      - libusb-1.0-0-dev
+    stage-packages:
+      - libusb-1.0-0
+  nmcli:
+    plugin: nil
+    stage-packages:
+      - network-manager
+      - libatm1
+      - libxtables12
+    organize:
+      usr/bin/nmcli: bin/nmcli

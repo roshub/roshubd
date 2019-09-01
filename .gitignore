@@ -1,0 +1,9 @@
+externals/*
+**/__pycache__/*
+parts/
+prime/
+stage/
+debian/*
+dist/
+obj-*linux*/*
+*.deb

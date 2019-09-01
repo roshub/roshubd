@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ACTOR_BASE64=$(snapctl get actor)
+
+echo $ACTOR_BASE64 > $SNAP_COMMON/set-actor

@@ -1,0 +1,66 @@
+{
+  "name": "@roshub/roshubd",
+  "private": false,
+  "version": "0.8.2",
+  "description": "RosHub device manager",
+  "files": [
+    "src",
+    ".env"
+  ],
+  "scripts": {
+    "start": "DEBUG=* npx ./src/index.js",
+    "debug": "DEBUG=* npx nodemon  --watch ./src --watch ../roshub-api --watch ../roshub-crypto src/index.js",
+    "watch": "DEBUG=roshubd.*,-roshub_crypto.*,Task*,-*.verbose npx nodemon  --watch ./src --watch ../roshub-api --watch ../roshub-crypto src/index.js",
+    "prepare-catkin": "npx webpack --config ./webpack.dev.js",
+    "build-catkin": "./scripts/build-catkin.sh",
+    "build-snap": "./scripts/prepare-snapcraft.sh; ./scripts/build-snapcraft.sh",
+    "clean-catkin": "rm -rf debian/ obj-*-linux*/"
+  },
+  "bin": {
+    "roshubd": "bin/roshubd"
+  },
+  "author": "RosHub Inc. <code@roshub.io>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "@roshub/api": "1.0.1",
+    "@stablelib/base64": "^0.7.2",
+    "@stablelib/utf8": "^0.10.1",
+    "apt": "https://github.com/sevenbitbyte/node-apt.git",
+    "better-queue": "^3.8.10",
+    "debug": "^3.1.0",
+    "deep-set": "^1.0.1",
+    "dependency-solver": "^1.0.6",
+    "dotenv": "^6.0.0",
+    "exec-sh": "^0.3.2",
+    "javascript-state-machine": "^3.1.0",
+    "jsonpath": "^1.0.2",
+    "jsonpath-plus": "^0.20.1",
+    "last-eventemitter": "^1.1.1",
+    "mongodb": "^3.2.5",
+    "node-snapd": "1.0.1",
+    "node-watch": "^0.6.2",
+    "node-wifi": "^2.0.5",
+    "node-wifiscanner2": "^1.2.0",
+    "rimraf": "^2.6.3",
+    "sanitize-filename": "^1.6.1",
+    "sync-exec": "^0.6.2",
+    "system-installer": "^1.1.0",
+    "systeminformation": "^4.12.2",
+    "utf-8-validate": "^5.0.2",
+    "uuid-mongodb": "^1.1.4",
+    "winston": "^3.1.0",
+    "xstate": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-tree-dependency": "^1.1.0"
+  }
+}
