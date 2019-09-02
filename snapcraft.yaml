@@ -90,5 +90,6 @@ parts:
       - network-manager
       - libatm1
       - libxtables12
+      - libslang2
     organize:
       usr/bin/nmcli: bin/nmcli
