@@ -175,14 +175,14 @@ class NodePlugin(snapcraft.BasePlugin):
             os.path.join(self.installdir, "bin", "roshubd"),
         )
         #_create_bins(package_json, self.installdir)
-
+        
         lock_file_path = os.path.join(self.installdir, "yarn.lock")
         if os.path.isfile(lock_file_path):
             with open(lock_file_path) as lock_file:
                 self._manifest["yarn-lock-contents"] = lock_file.read()
 
         # Get the names and versions of installed packages
-        #installed_node_packages = self._get_installed_node_packages(self.installdir)
+        # installed_node_packages = self._get_installed_node_packages(self.installdir)
         self._manifest["node-packages"] = [
             "none"
         ]
@@ -234,13 +234,9 @@ class NodePlugin(snapcraft.BasePlugin):
                 os.path.join(rootdir, "yarn.lock"),
                 os.path.join(package_dir, "yarn.lock"),
             )
-            link_or_copy_tree(
-                os.path.join(rootdir, "externals"),
-                os.path.join(package_dir, "externals"),
-            )
-        
+
         self.run(cmd + ["install"] + flags, package_dir)
-        shutil.rmtree(os.path.join(package_dir, "externals"))
+
         return package_dir
 
     def run(self, cmd, rootdir):
