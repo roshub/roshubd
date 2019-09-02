@@ -170,8 +170,12 @@ class NodePlugin(snapcraft.BasePlugin):
         )
         # Create binary entries
         package_json = self._get_package_json(rootdir=self.builddir)
-        _create_bins(package_json, self.installdir)
-
+        link_or_copy(
+            os.path.join(package_dir, "../bin", "roshubd"),
+            os.path.join(self.installdir, "bin", "roshubd"),
+        )
+        #_create_bins(package_json, self.installdir)
+        
         lock_file_path = os.path.join(self.installdir, "yarn.lock")
         if os.path.isfile(lock_file_path):
             with open(lock_file_path) as lock_file:
@@ -180,8 +184,7 @@ class NodePlugin(snapcraft.BasePlugin):
         # Get the names and versions of installed packages
         installed_node_packages = self._get_installed_node_packages(self.installdir)
         self._manifest["node-packages"] = [
-            "{}={}".format(name, installed_node_packages[name])
-            for name in installed_node_packages
+            "none"
         ]
 
     def _install(self, rootdir):
