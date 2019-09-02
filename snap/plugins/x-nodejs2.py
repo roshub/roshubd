@@ -182,7 +182,7 @@ class NodePlugin(snapcraft.BasePlugin):
                 self._manifest["yarn-lock-contents"] = lock_file.read()
 
         # Get the names and versions of installed packages
-        installed_node_packages = self._get_installed_node_packages(self.installdir)
+        # installed_node_packages = self._get_installed_node_packages(self.installdir)
         self._manifest["node-packages"] = [
             "none"
         ]
