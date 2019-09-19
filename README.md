@@ -8,7 +8,7 @@ Device agent for [The Robotics Cloud](https://roshub.io).
 
 ## Introduction
 
-Join the [Beta Program](https://roshub.io/beta-signup) for more information.
+Join the [Beta Program](https://beta.roshub.io) for more information.
 
 ## Install Snap
 
