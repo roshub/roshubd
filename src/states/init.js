@@ -26,7 +26,8 @@ class InitTask extends Task {
   }
 
   onDone(){
-    if(!this.canParty || !this.context.party.hasActor() || this.failure){
+    //if(!this.canParty || !this.context.party.hasActor() || this.failure){
+    if(!this.context.party.hasActor()){
       debug('waiting to be claimed . . .')
       this.context.stateTask('enroll')
     } else {
@@ -61,13 +62,17 @@ class InitTask extends Task {
       if (foo.message !== 'client needs to be enrolled') {
         debug('unexpected error!')
         debug(foo)
-        throw foo
+
+        if(foo.name !== 'AuthError'){ throw foo }
       }
-      debug('needs enrollment')
-      throw new Error('needs enrollment')
+      else{
+        debug('needs enrollment')
+        throw new Error('needs enrollment')
+      }
     }
 
     debug('canParty -', this.canParty)
+    debug('hasActor - ', this.context.party.hasActor())
     return this.context.local.config
   }
 
