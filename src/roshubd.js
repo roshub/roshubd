@@ -72,7 +72,14 @@ class Roshubd {
     debug('stateTask - ', taskName)
 
     await this.assertNoActiveState()
-    return await this.loadTask('state.'+ taskName)
+    const result = this.loadTask('state.'+ taskName)
+
+    if(this.remote.status){
+      this.remote.status.setState(taskName)
+      await this.remote.status.save()
+    }
+
+    return await result
   }
 
   async currentStateTask(){
