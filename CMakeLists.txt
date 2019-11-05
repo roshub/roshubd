@@ -47,7 +47,7 @@ execute_process(
   COMMAND npm i --cwd ${CMAKE_CURRENT_SOURCE_DIR}
 )
 execute_process(
-  COMMAND npm run --cwd ${CMAKE_CURRENT_SOURCE_DIR} prepare-catkin
+  COMMAND npm run --cwd ${CMAKE_CURRENT_SOURCE_DIR} prepare
 )
 execute_process(
   COMMAND rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/node_modules/
