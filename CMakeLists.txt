@@ -44,10 +44,16 @@ include_directories(
 
 # build node packages
 execute_process(
-  COMMAND yarn --cwd ${CMAKE_CURRENT_SOURCE_DIR}
+  COMMAND npm i --cwd ${CMAKE_CURRENT_SOURCE_DIR}
 )
 execute_process(
-  COMMAND yarn --cwd ${CMAKE_CURRENT_SOURCE_DIR} run prepare-catkin
+  COMMAND npm run --cwd ${CMAKE_CURRENT_SOURCE_DIR} prepare-catkin
+)
+execute_process(
+  COMMAND rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/node_modules/
+)
+execute_process(
+  COMMAND npm i --cwd ${CMAKE_CURRENT_SOURCE_DIR} --production
 )
 
 # install node packages & other scripts
