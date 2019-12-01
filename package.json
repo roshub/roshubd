@@ -12,7 +12,7 @@
     "start": "DEBUG=* npx ./src/index.js",
     "debug": "DEBUG=* npx nodemon  --watch ./src --watch ../roshub-api --watch ../roshub-crypto src/index.js",
     "watch": "DEBUG=roshubd.*,-roshub_crypto.*,Task*,-*.verbose npx nodemon  --watch ./src --watch ../roshub-api --watch ../roshub-crypto src/index.js",
-    "prepare-catkin": "npx webpack --config ./webpack.dev.js",
+    "prepare": "npx webpack --config ./webpack.dev.js",
     "build-catkin": "./scripts/build-catkin.sh",
     "build-snap": "./scripts/prepare-snapcraft.sh; ./scripts/build-snapcraft.sh",
     "clean-catkin": "rm -rf debian/ obj-*-linux*/"
@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@roshub/api": "1.0.1",
+    "@roshub/api": "1.0.2",
     "@stablelib/base64": "^0.7.2",
     "@stablelib/utf8": "^0.10.1",
     "apt": "https://github.com/sevenbitbyte/node-apt.git",
