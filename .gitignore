@@ -7,3 +7,4 @@ debian/*
 dist/
 obj-*linux*/*
 *.deb
+/node_modules
